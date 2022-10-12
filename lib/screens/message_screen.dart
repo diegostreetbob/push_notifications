@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+class MessageScreen extends StatelessWidget {
+  //Atributos
+  static const String route = "MessageScreen";//Ruta de esta pantalla
+  //Constructor
+  const MessageScreen ({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+      final RemoteMessage args = ModalRoute.of(context)?.settings.arguments as RemoteMessage;
+      return Scaffold(
+      appBar: AppBar(title: const Text("MessageScreen")),
+      body: Center(child: Text(args.data["producto"])),
+    );
+  }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
